@@ -65,10 +65,10 @@
     }; 
   })(window, "https://app.cal.com/embed/embed.js", "init");
 
-  // 1. Initialize with the clean root domain
+  // Initialize Cal engine on root domain
   Cal("init", { origin: "https://cal.com" });
   
-  // 2. Tell the engine to listen for data attributes on your buttons
+  // Set global UI properties and explicitly declare layout formatting rules safely here
   Cal("ui", {
     theme: "light",
     styles: { branding: { brandColor: "#0055a5" } },
