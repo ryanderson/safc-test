@@ -24,8 +24,7 @@
                 <button 
                 id="trigger-booking-btn" 
                 class="btn-primary" 
-                data-cal-link="ryan-anderson-71ku4q/airplane-rental" 
-                data-cal-config='{"layout":"month_view"}'
+                data-cal-link="ryan-anderson-71ku4q/airplane-rental"
                 >
                 Book Flight Time
                 </button>
@@ -66,13 +65,15 @@
     }; 
   })(window, "https://app.cal.com/embed/embed.js", "init");
 
-  // Fire up the instance engine
-  Cal("init", { origin: "https://app.cal.com" });
+  // 1. Initialize with the clean root domain
+  Cal("init", { origin: "https://cal.com" });
   
-  // This listens for any elements carrying the data attributes and activates them
+  // 2. Tell the engine to listen for data attributes on your buttons
   Cal("ui", {
     theme: "light",
-    styles: { branding: { brandColor: "#0055a5" } }
+    styles: { branding: { brandColor: "#0055a5" } },
+    hideEventTypeDetails: false,
+    layout: "month_view"
   });
 </script>
 
