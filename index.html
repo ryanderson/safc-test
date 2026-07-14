@@ -8,34 +8,32 @@
 </head>
 <body>
     
-    <div class="pilot-dashboard-grid">
-        
-        <!-- Left column: Tockify View (Forced to Month view layout) -->
-        <section class="calendar-view-panel">
-            <h2>Aircraft Live Schedule</h2>
-            <div data-tockify-calendar="ryanderson" data-tockify-component="calendar" data-tockify-view="month"></div>
-        </section>
+---
+layout: base.html
+title: Member Flight Portal
+---
 
-        <!-- Right column: Cal.com Booking Action -->
-        <section class="booking-action-panel">
-            <div class="sticky-card">
-                <h3>Reserve the Aircraft</h3>
-                <p>Check the schedule on the left. If the plane is open, tap below to lock in your time slots.</p>
-                <button 
-                id="trigger-booking-btn" 
-                class="btn-primary" 
-                data-cal-link="ryan-anderson-71ku4q/airplane-rental"
-                >
+<div class="pilot-dashboard-grid">
+    
+    <section class="calendar-view-panel">
+        <h2>Aircraft Live Schedule</h2>
+        <div data-tockify-calendar="ryanderson" data-tockify-component="calendar" data-tockify-view="month"></div>
+    </section>
+
+    <section class="booking-action-panel">
+        <div class="sticky-card">
+            <h3>Reserve the Aircraft</h3>
+            <p>Check the schedule on the left. If the plane is open, tap below to secure your flight hours.</p>
+            
+            <button id="trigger-booking-btn" class="btn-primary">
                 Book Flight Time
-                </button>
-            </div>
-        </section>
+            </button>
+        </div>
+    </section>
 
-    </div>
+</div>
 
-    <!-- Embed Scripts -->
-    <script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
-    <script src="https://app.cal.com/embed/embed.js"></script>
+<script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
 
 <script type="text/javascript">
   (function (C, A, L) { 
@@ -65,10 +63,15 @@
     }; 
   })(window, "https://app.cal.com/embed/embed.js", "init");
 
-  // Initialize Cal engine on root domain
+  // Initialize Cal Engine
   Cal("init", { origin: "https://cal.com" });
-  
-  // Set global UI properties and explicitly declare layout formatting rules safely here
+
+  // Bind the popup overlay directly to your button ID
+  Cal("getElementQueue", "#trigger-booking-btn", "popup", {
+    calLink: "ryanderson/airplane-rental"
+  });
+
+  // Apply custom styling directly inside the modal framework
   Cal("ui", {
     theme: "light",
     styles: { branding: { brandColor: "#0055a5" } },
