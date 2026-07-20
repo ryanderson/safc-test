@@ -1,4 +1,4 @@
-/* Base Layout Setup */
+/* Base Grid Setup */
 .pilot-dashboard-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -9,14 +9,14 @@
     font-family: system-ui, -apple-system, sans-serif;
 }
 
-/* Transform to a two-column desktop grid at 900px wide */
+/* Two-column layout for desktop views */
 @media (min-width: 900px) {
     .pilot-dashboard-grid {
         grid-template-columns: 2.5fr 1fr;
     }
 }
 
-/* Left panel style container */
+/* Calendar Card Container Styles */
 .calendar-view-panel {
     background: #ffffff;
     border-radius: 8px;
@@ -30,7 +30,7 @@
     color: #1e293b;
 }
 
-/* Right panel action box card */
+/* Sticky Right-side Action Container */
 .booking-action-panel .sticky-card {
     background: #f8fafc;
     border: 1px solid #e2e8f0;
@@ -39,7 +39,6 @@
     text-align: center;
 }
 
-/* Keeps the booking card pinned to the screen while scrolling the calendar */
 @media (min-width: 900px) {
     .booking-action-panel .sticky-card {
         position: sticky;
@@ -59,7 +58,7 @@
     margin-bottom: 2rem;
 }
 
-/* The primary interactive action button */
+/* Button UI Actions */
 .btn-primary {
     display: block;
     width: 100%;
